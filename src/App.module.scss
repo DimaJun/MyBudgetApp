@@ -1,0 +1,16 @@
+@import './styles/base.scss';
+@import './styles/reset.scss';
+@import './styles/vars.scss';
+
+.App {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.MainContent {
+  display: flex;
+  flex: 1 1 auto;
+  overflow-y: hidden;  
+}

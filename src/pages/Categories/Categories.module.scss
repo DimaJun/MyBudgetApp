@@ -1,0 +1,47 @@
+@import '../../styles/vars.scss';
+
+.Categories {
+  flex-grow: 1;
+}
+
+.CategoriesWrapper {
+  background-color: gainsboro;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+.CategoriesTitle {
+  color: $color-500;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.CategoriesList {
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.CategoriesListItem {
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 5px;
+
+  background-color: $color-100;
+  color: #fff;
+  font-size: 18px;
+}
+
+.CategoriesOpenModal {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background-color: $color-500;
+  color: #fff;
+  font-weight: 500;
+}

@@ -1,0 +1,78 @@
+@import '../../styles/vars.scss';
+
+.TransactionsList {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+
+  &Pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  &Title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  &TableWrapper {
+    overflow-x: auto;
+  }
+
+  &Table {
+    width: 100%;
+    border-collapse: collapse;
+    
+    td {
+      padding: 8px;
+
+      &:first-child {
+        text-align: center;
+      }
+
+      &:last-child {
+        text-align: center;
+      }
+    }
+
+    th {
+      font-size: 20px;
+      padding: 4px 20px;
+    }
+
+    th, td {
+      border: 1px solid black;
+      background-color: gainsboro;
+    }
+  }
+  
+  &Table tbody {
+    &::before {
+      content: "";
+      display: table-row;
+      height: 15px;
+    }
+  }
+
+  .PaginationItem {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    transition: background-color .3s ease-in-out;
+  }
+  
+  .ActivePage {
+    background-color: $color-200;
+  }
+
+  .ListDeleteItem {
+    cursor: pointer;
+    background-color: transparent;
+  }
+}

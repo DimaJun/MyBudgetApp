@@ -1,0 +1,75 @@
+@import "../../styles/vars.scss";
+
+.Transactions {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+
+  &Title {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 25px;
+  }
+
+  &Wrapper {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  &Form {
+    width: 50%;
+    max-height: 360px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: gainsboro;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      row-gap: 5px;
+      margin-bottom: 10px;
+
+
+      font-size: 18px;
+    }
+
+    @media (max-width: 541px) {
+      width: 75%;
+    }
+  }
+
+  &FormInput {
+    min-height: 35px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: rgb(123, 123, 123);
+    background-color: lighten(gainsboro, 8%);
+
+    &::placeholder {
+      color:rgb(123, 123, 123);
+    }
+  }
+
+  &FormRadios {
+    label {
+      flex-direction: row;
+      align-items: center;
+      column-gap: 6px;
+    }
+  }
+
+  &FormSubmit {
+    cursor: pointer;
+    padding: 8px;
+    width: 22vw;
+    margin: 0 auto;
+    background-color: $color-100;
+    color: #fff;
+    font-weight: 500;
+  }
+}

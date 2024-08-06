@@ -1,0 +1,82 @@
+@import "../../styles/vars.scss";
+
+.Navbar {
+  flex: 0 0 auto;
+
+  background-color: $color-300;
+
+  @media (max-width: 1025px) {
+    padding: 11px;
+  }
+
+  &Wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &HomeLink {
+    display: flex;
+    align-items: flex-end;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 900;
+  }
+
+  &List {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 987px) {
+      width: 100%;
+      display: none;
+    }
+ 
+    @media (max-width: 821px) {
+      column-gap: 20px;
+    }
+
+    @media (max-width: 598px) {
+      flex-direction: column;
+    }
+  }
+
+  &ListOpen {
+    display: flex;
+  }
+
+  &Mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 987px) {
+      width: 100%;
+    }
+  }
+
+  &Link {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    padding: 20px;
+
+    @media (max-width: 821px) {
+      font-size: 18px;
+      padding: 10px;
+    }
+  }
+}
+
+.NavbarBurger {
+  display: none;
+
+  background-color: transparent;
+
+  @media (max-width: 987px) {
+    display: block;
+  }
+}

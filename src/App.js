@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import styles from './App.module.scss';
+
+import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import { Categories } from './pages/Categories/Categories.js';
+import { Transactions } from './pages/Transactions/Transactions.js';
+import { TransactionsList } from './pages/TransactionsList/TransactionsList.js';
+import { HelloPage } from './pages/HelloPage/HelloPage.js';
+
+import { Navbar } from './components/Navbar/Navbar.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className={styles.App}>
+          <Navbar className={styles.Navbar}/>
+          <main className={styles.MainContent}>
+            <Routes>
+              <Route path='/' element={<HelloPage/>}></Route>
+              <Route path='/transactions' element={<Transactions/>}></Route>
+              <Route path='/transactions-list' element={<TransactionsList/>}></Route>
+              <Route path='/categories' element={<Categories/>}></Route>
+            </Routes>
+          </main>
+      </div>
+    </Router>
   );
 }
 

@@ -1,0 +1,51 @@
+@import '../../../styles/vars.scss';
+
+.Modal {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(#000, 0.4);
+}
+
+.ModalContent {
+  max-width: 300px;
+  width: 100%;
+  min-height: 120px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: #fff;
+  padding: 20px;
+}
+
+.ModalTitle {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.ModalInput {
+  width: 80%;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.ModalSubmit,
+.ModalClose {
+  cursor: pointer;
+  padding: 5px 10px;
+  font-weight: 500;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 6px;
+}
+
+.ModalSubmit {
+  margin-right: 10px;
+  background-color: $color-300;
+}
+
+.ModalClose {
+  background-color:indianred;
+}
