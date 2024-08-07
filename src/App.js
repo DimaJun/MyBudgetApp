@@ -9,6 +9,8 @@ import { HelloPage } from './pages/HelloPage/HelloPage.js';
 
 import { Navbar } from './components/Navbar/Navbar.js';
 
+import { SpeedInsights } from '@vercel/speed-insights/react';
+
 function App() {
   return (
     <Router>
@@ -21,7 +23,8 @@ function App() {
               <Route path='/transactions-list' element={<TransactionsList/>}></Route>
               <Route path='/categories' element={<Categories/>}></Route>
             </Routes>
-          </main>
+        </main>
+        <SpeedInsights/>
       </div>
     </Router>
   );
