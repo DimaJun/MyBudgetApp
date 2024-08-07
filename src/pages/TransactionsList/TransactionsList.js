@@ -87,9 +87,9 @@ export const TransactionsList = () => {
                 currentTransactions.map((transaction, index) => (
                   <tr key={index}>
                     <td>{transactions.indexOf(transaction) + 1}</td>
-                    <td>{transaction.title}</td>
-                    <td>{transaction.amount}</td>
-                    <td>{transaction.category}</td>
+                    <td title={transaction.title}>{transaction.title.length > 25 ? `${transaction.title.slice(0, 26)}..` : transaction.title}</td>
+                    <td title={transaction.amount}>{transaction.amount.toLocaleString().length > 25 ? `${transaction.amount.toLocaleString().slice(0, 26)}..` : transaction.amount}</td>
+                    <td title={transaction.category}>{transaction.category.length > 25 ? `${transaction.category.slice(0,26)}..` : transaction.category}</td>
                     <td>{transaction.type}</td>
                     <td>{transaction.date}</td>
                     <td>

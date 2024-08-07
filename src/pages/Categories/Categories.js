@@ -54,8 +54,8 @@ export const Categories = () => {
           <ul className={styles.CategoriesList}>
             {categories.length > 0 ? (
               categories.map((category, index) => (
-                <li key={index} className={styles.CategoriesListItem}>
-                  {category}
+                <li key={index} className={styles.CategoriesListItem} title={category}>
+                  {category.length > 30 ? `${category.slice(0, 31)}..` : category}
                 </li>
               ))
             ) : (

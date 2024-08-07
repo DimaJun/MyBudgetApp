@@ -138,7 +138,7 @@ export const Transactions = () => {
               {
                 categories.length > 0 ?
                   categories.map((category, index) => (
-                    <option key={index} value={category}>{category}</option>
+                    <option key={index} value={category} title={category}>{category.length > 20 ? `${category.slice(0, 21)}..` : category}</option>
                   ))
                   : (<option value="" disabled>No categories</option>)
               }
