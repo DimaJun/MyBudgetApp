@@ -1,0 +1,53 @@
+@import "../../styles/vars.scss";
+
+.Totals {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.TotalsWrapper {
+  margin-top: 40px;
+  width: 100%;
+  max-width: 400px;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+
+.TotalsTypes {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.TotalsType {
+  p:first-child,
+  p:last-child {
+    width: fit-content;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  p:first-child {
+    width: 100%;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  p:last-child {
+    padding: 5px;
+    color: #fff;
+    margin: 0 auto;
+  }
+
+  .TotalsIncome {
+    background-color: $color-100;
+  }
+
+  .TotalsExpense {
+    background-color: red;
+  }
+}

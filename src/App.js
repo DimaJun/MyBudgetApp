@@ -6,6 +6,7 @@ import { Categories } from './pages/Categories/Categories.js';
 import { Transactions } from './pages/Transactions/Transactions.js';
 import { TransactionsList } from './pages/TransactionsList/TransactionsList.js';
 import { HelloPage } from './pages/HelloPage/HelloPage.js';
+import { Totals } from './pages/Totals/Totals.js';
 
 import { Navbar } from './components/Navbar/Navbar.js';
 
@@ -22,6 +23,7 @@ function App() {
               <Route path='/transactions' element={<Transactions/>}></Route>
               <Route path='/transactions-list' element={<TransactionsList/>}></Route>
               <Route path='/categories' element={<Categories/>}></Route>
+              <Route path='/totals' element={<Totals/>}></Route>
             </Routes>
         </main>
         <SpeedInsights/>
