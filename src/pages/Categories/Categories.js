@@ -12,7 +12,6 @@ import { ToastContainer, toast, Bounce } from "react-toastify";
 export const Categories = () => {
   const [categories, setCategories] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [deleteSuccess, setDeleteSuccess] = useState(false);
 
   useEffect(() => {
     const storedCategories =
@@ -45,23 +44,21 @@ export const Categories = () => {
     setCategories(newCategories);
     localStorage.setItem("categories", JSON.stringify(newCategories));
     setIsModalOpen(false);
-    notify(`Category '${categoryName}' was successfully added!`)
+    notify(`Category '${categoryName.length > 20 ? categoryName.slice(0,21)+".." : categoryName}' was successfully added!`)
   };
 
   const handleDeleteCategory = (categoryName) => {
     if (categories.includes(categoryName)) {
       let answer = window.confirm(
-        `Do you really want to delete a category '${categoryName}'?`
+        `Do you really want to delete a category '${categoryName.length > 20 ? categoryName.slice(0,21)+".." : categoryName}'?`
       );
       if (answer) {
-        setDeleteSuccess(true);
-        setTimeout(() => setDeleteSuccess(!deleteSuccess), 1000);
         const updatedCategories = categories.filter(
           (item) => item !== categoryName
         );
         setCategories(updatedCategories);
         localStorage.setItem("categories", JSON.stringify(updatedCategories));
-        notify(`Category '${categoryName}' successfully deleted!`)
+        notify(`Category '${categoryName.length > 20 ? categoryName.slice(0,21)+".." : categoryName}' successfully deleted!`)
       } else {
         console.log('Удаление отменено!')
       }
@@ -85,8 +82,8 @@ export const Categories = () => {
                   title={category}
                   onClick={() => handleDeleteCategory(category)}
                 >
-                  {category.length > 30
-                    ? `${category.slice(0, 31)}..`
+                  {category.length > 20
+                    ? `${category.slice(0, 21)}..`
                     : category}
                 </li>
               ))
