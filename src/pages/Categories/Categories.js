@@ -6,12 +6,13 @@ import manageIcon from "../../assets/icons/plus.svg";
 
 import { CategoriesModal } from "./components/CategoriesModal";
 
-import 'react-toastify/ReactToastify.css';
-import { ToastContainer, toast, Bounce} from "react-toastify";
+import "react-toastify/ReactToastify.css";
+import { ToastContainer, toast, Bounce } from "react-toastify";
 
 export const Categories = () => {
   const [categories, setCategories] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [deleteSuccess, setDeleteSuccess] = useState(false);
 
   useEffect(() => {
     const storedCategories =
@@ -21,8 +22,8 @@ export const Categories = () => {
     }
   }, []);
 
-  const notifyDuplicate = () =>
-    toast("Such a category already exists!", {
+  const notify = (msg) =>
+    toast(msg, {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
@@ -32,11 +33,11 @@ export const Categories = () => {
       progress: undefined,
       theme: "light",
       transition: Bounce,
-    });
-
+  });
+  
   const handleAddCategory = (categoryName) => {
     if (categories.includes(categoryName)) {
-      notifyDuplicate();
+      notify("Such a category already exists!");
       return;
     }
 
@@ -44,6 +45,29 @@ export const Categories = () => {
     setCategories(newCategories);
     localStorage.setItem("categories", JSON.stringify(newCategories));
     setIsModalOpen(false);
+    notify(`Category '${categoryName}' was successfully added!`)
+  };
+
+  const handleDeleteCategory = (categoryName) => {
+    if (categories.includes(categoryName)) {
+      let answer = window.confirm(
+        `Do you really want to delete a category '${categoryName}'?`
+      );
+      if (answer) {
+        setDeleteSuccess(true);
+        setTimeout(() => setDeleteSuccess(!deleteSuccess), 1000);
+        const updatedCategories = categories.filter(
+          (item) => item !== categoryName
+        );
+        setCategories(updatedCategories);
+        localStorage.setItem("categories", JSON.stringify(updatedCategories));
+        notify(`Category '${categoryName}' successfully deleted!`)
+      } else {
+        console.log('Удаление отменено!')
+      }
+    } else {
+      console.error("Элемент не был найден");
+    }
   };
 
   return (
@@ -51,15 +75,23 @@ export const Categories = () => {
       <div className="wrapper">
         <div className={styles.CategoriesWrapper}>
           <h2 className={styles.CategoriesTitle}>Categories</h2>
+          <p className={styles.CategoriesDelete}>You can click on a category to delete it</p>
           <ul className={styles.CategoriesList}>
             {categories.length > 0 ? (
               categories.map((category, index) => (
-                <li key={index} className={styles.CategoriesListItem} title={category}>
-                  {category.length > 30 ? `${category.slice(0, 31)}..` : category}
+                <li
+                  key={index}
+                  className={styles.CategoriesListItem}
+                  title={category}
+                  onClick={() => handleDeleteCategory(category)}
+                >
+                  {category.length > 30
+                    ? `${category.slice(0, 31)}..`
+                    : category}
                 </li>
               ))
             ) : (
-              <li className={styles.CategoriesListItem}>
+              <li className={`${styles.CategoriesListItem} ${styles.noCategories}`}>
                 No categories available
               </li>
             )}
@@ -80,7 +112,7 @@ export const Categories = () => {
           onClose={() => setIsModalOpen(false)}
         />
       )}
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };

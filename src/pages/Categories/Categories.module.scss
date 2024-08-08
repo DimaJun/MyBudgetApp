@@ -14,7 +14,13 @@
 .CategoriesTitle {
   color: $color-500;
   font-size: 30px;
+  margin-bottom: 5px;
+}
+
+.CategoriesDelete {
   margin-bottom: 10px;
+  font-style: italic;
+  font-size: 18px;
 }
 
 .CategoriesList {
@@ -25,6 +31,7 @@
 }
 
 .CategoriesListItem {
+  cursor: pointer;
   width: fit-content;
   padding: 5px 10px;
   border-radius: 5px;
@@ -32,7 +39,19 @@
   background-color: $color-100;
   color: #fff;
   font-size: 18px;
-}
+  transition: background-color .3s ease-in-out; 
+
+  &:hover {
+    background-color: lighten(red, 10%);
+  }
+
+  &.noCategories {
+    cursor: default;
+    &:hover {
+      background-color: $color-100;
+    }
+  }
+} 
 
 .CategoriesOpenModal {
   cursor: pointer;
