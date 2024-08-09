@@ -1,0 +1,11 @@
+@import '../../styles/vars.scss';
+
+.HelloPage {
+    flex-grow: 1;
+    padding-top: 100px;
+    text-align: center;
+}
+
+a {
+    color: $color-200;
+}
